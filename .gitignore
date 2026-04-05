@@ -1,0 +1,11 @@
+# Windows system files
+[Dd]esktop.ini
+thumbs.db
+.DS_Store
+
+# VS Code
+.vscode/
+
+# Local data (if any)
+node_modules/
+.env

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #220e02;
+            color: #ffdcc5;
+        }
+        .font-headline { font-family: 'Noto Serif', serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-fixed": "#241a00",
+                        "tertiary-container": "#cca72f",
+                        "secondary-container": "#00761f",
+                        "inverse-on-surface": "#442b18",
+                        "surface-container-lowest": "#1c0900",
+                        "primary-fixed": "#ffdcc3",
+                        "on-error": "#690005",
+                        "error": "#ffb4ab",
+                        "inverse-primary": "#914d00",
+                        "on-secondary-fixed": "#002204",
+                        "tertiary": "#e9c349",
+                        "on-tertiary-container": "#4e3d00",
+                        "inverse-surface": "#ffdcc5",
+                        "secondary": "#78dc77",
+                        "secondary-fixed-dim": "#78dc77",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-high": "#3c2412",
+                        "outline": "#a18d7f",
+                        "on-tertiary": "#3c2f00",
+                        "surface-container": "#301a09",
+                        "on-secondary-container": "#95fb92",
+                        "surface": "#220e02",
+                        "on-background": "#ffdcc5",
+                        "on-secondary": "#00390a",
+                        "primary-fixed-dim": "#ffb77e",
+                        "on-primary-fixed-variant": "#6e3900",
+                        "surface-container-low": "#2c1606",
+                        "tertiary-fixed": "#ffe088",
+                        "on-surface": "#ffdcc5",
+                        "primary": "#ffb77e",
+                        "surface-variant": "#492f1c",
+                        "secondary-fixed": "#94f990",
+                        "on-secondary-fixed-variant": "#005313",
+                        "surface-dim": "#220e02",
+                        "tertiary-fixed-dim": "#e9c349",
+                        "error-container": "#93000a",
+                        "on-primary-fixed": "#2f1500",
+                        "surface-tint": "#ffb77e",
+                        "surface-container-highest": "#492f1c",
+                        "on-surface-variant": "#d9c2b3",
+                        "surface-bright": "#4d3320",
+                        "on-primary-container": "#442100",
+                        "primary-container": "#d07c30",
+                        "on-primary": "#4d2600",
+                        "outline-variant": "#544438",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "background": "#220e02"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-6 py-4 fixed top-0 z-50 bg-[#220e02] dark:bg-[#220e02]">
+<div class="flex items-center gap-3">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center overflow-hidden border border-outline-variant/20">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of a friendly digital assistant avatar with warm lighting and a professional soft focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5LZ-X9HqGJ5TykgvhzgsxGHCj1AdcYZmz9Xwq0um2vsr1BfPXfsshdcDgWUFYTRBa1W3LCi7uLnZYAVsN4peNMiNshqNiH1lH3ixl2XyPcmzgm6ctcd88nLF5J0JIjKOUeBIMnf3igGFEOMGo_q8WcOXtB79w1t4QCbGQSCyeFor2w__z1-n0Pw5fLgMVN4ndTccsrSvybK4veVbECiOmFgA7_5PPStIE4_me6luOMYhPP5IXJMNUZPgKbOX4rTgzbyxdoGQQuu-s"/>
+</div>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-secondary rounded-full border-2 border-surface"></div>
+</div>
+<div>
+<h1 class="font-headline font-bold text-xl tracking-tight text-[#ffb77e]">Doughvana Assistant 🍩</h1>
+<p class="text-[10px] font-label uppercase tracking-widest text-secondary">Online</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-[#ffdcc5] hover:opacity-80 transition-opacity active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+<div class="absolute bottom-0 left-0 w-full bg-gradient-to-b from-[#2c1606] to-transparent h-1"></div>
+</header>
+<!-- Chat Canvas -->
+<main class="flex-1 mt-20 mb-32 px-4 flex flex-col gap-6 overflow-y-auto">
+<!-- Date Marker -->
+<div class="flex justify-center">
+<span class="text-[10px] font-label uppercase tracking-[0.2em] text-on-surface-variant/60 py-8">Today's Sweet Talk</span>
+</div>
+<!-- Bot Message -->
+<div class="flex flex-col gap-2 max-w-[85%] self-start">
+<div class="bg-primary-container text-on-primary-container p-4 rounded-2xl rounded-tl-none shadow-lg">
+<p class="text-sm leading-relaxed">Warm greetings! I'm Claude, your Doughvana concierge. I'm currently smelling freshly baked Cinnamon Swirls—they just came out of the oven. How can I sweeten your day?</p>
+</div>
+<span class="text-[10px] font-label text-on-surface-variant/50 ml-1">10:02 AM</span>
+</div>
+<!-- User Message -->
+<div class="flex flex-col gap-2 max-w-[85%] self-end">
+<div class="bg-surface-container-highest text-on-surface p-4 rounded-2xl rounded-tr-none border border-outline-variant/10">
+<p class="text-sm leading-relaxed">I'm looking for something to help me get through a long study session tonight. Any suggestions?</p>
+</div>
+<span class="text-[10px] font-label text-on-surface-variant/50 self-end mr-1">10:05 AM</span>
+</div>
+<!-- Bot Message with Product Card -->
+<div class="flex flex-col gap-2 max-w-[85%] self-start">
+<div class="bg-primary-container text-on-primary-container p-4 rounded-2xl rounded-tl-none shadow-lg">
+<p class="text-sm leading-relaxed">For deep focus, I highly recommend our "Midnight Cocoa Bean." It's dark chocolate infused with a hint of espresso—perfect for brain power!</p>
+</div>
+<!-- Editorial Product Suggestion -->
+<div class="bg-surface-container-low rounded-2xl overflow-hidden mt-2 border border-outline-variant/5">
+<div class="h-32 w-full overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Macro photography of a dark chocolate glazed donut with roasted espresso beans on top, dramatic moody studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBObWVLHfRKo54Gne0HVuT4o_fBkHVoNs5Kh26P0gcni6U4L9POxWKCAF-VGkqqdw7PgAMkGvixaR17B9wF-L5_NrzLOznalgU1eaicC8t0PqoXuwnCc1XqBtIXGdNQl-lNkc8yx6Ve7yDAJyXdymOMZ0bAIETSm5CuBWSNesUxXKaWswbfY2OtNtIoojn36NESr9cUMQ-p1QC0V2jMfvgOhBhKZqZo0YMr1qIVBUF5j8mdQ2xV4kCpytd7A8LZ2GfaA_plr5AJ8Zep"/>
+</div>
+<div class="p-3 flex justify-between items-center">
+<div>
+<h4 class="font-headline font-bold text-primary">Midnight Cocoa Bean</h4>
+<p class="text-xs text-on-surface-variant">Boost focus &amp; energy</p>
+</div>
+<button class="bg-primary text-on-primary px-3 py-1 rounded-full text-xs font-bold">Add</button>
+</div>
+</div>
+<span class="text-[10px] font-label text-on-surface-variant/50 ml-1">10:06 AM</span>
+</div>
+<!-- Quick Reply Chips Container -->
+<div id="quick-replies" class="fixed bottom-32 left-0 w-full px-4 overflow-x-auto no-scrollbar flex gap-2 py-2 bg-gradient-to-t from-surface via-surface to-transparent">
+<button onclick="sendQuickReply(this.textContent)" class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-highest text-on-surface text-xs font-medium border border-outline-variant/20 hover:bg-primary hover:text-on-primary transition-all active:scale-95">What's today's special?</button>
+<button onclick="sendQuickReply(this.textContent)" class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-highest text-on-surface text-xs font-medium border border-outline-variant/20 hover:bg-primary hover:text-on-primary transition-all active:scale-95">Best treat for studying?</button>
+<button onclick="sendQuickReply(this.textContent)" class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-highest text-on-surface text-xs font-medium border border-outline-variant/20 hover:bg-primary hover:text-on-primary transition-all active:scale-95">How long is delivery?</button>
+<button onclick="sendQuickReply(this.textContent)" class="whitespace-nowrap px-4 py-2 rounded-full bg-surface-container-highest text-on-surface text-xs font-medium border border-outline-variant/20 hover:bg-primary hover:text-on-primary transition-all active:scale-95">Show me the menu</button>
+</div>
+</main>
+<!-- Input Bar Section -->
+<div class="fixed bottom-20 left-0 w-full p-4 bg-surface/80 backdrop-blur-md z-40">
+<div class="flex items-center gap-2 bg-surface-container-lowest rounded-full px-4 py-2 border border-outline-variant/15 focus-within:border-primary transition-colors">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+</button>
+<input id="chat-input" class="flex-1 bg-transparent border-none focus:ring-0 text-on-surface text-sm placeholder:text-on-surface-variant/50" placeholder="Type a message..." type="text" onkeydown="if(event.key==='Enter')sendMessage()"/>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-1">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+<button id="send-btn" onclick="sendMessage()" class="bg-primary text-on-primary p-2 rounded-full flex items-center justify-center active:scale-90 duration-200">
+<span class="material-symbols-outlined" data-icon="send">send</span>
+</button>
+</div>
+</div>
+
+<!-- API Key Modal -->
+<div id="api-modal" class="fixed inset-0 z-[100] flex items-center justify-center bg-surface/90 backdrop-blur-xl p-6">
+<div class="bg-surface-container-high rounded-3xl p-8 max-w-sm w-full shadow-2xl border border-outline-variant/10 space-y-6">
+<div class="text-center space-y-2">
+<div class="w-16 h-16 rounded-2xl bg-primary/15 flex items-center justify-center mx-auto mb-4">
+<span class="material-symbols-outlined text-primary text-3xl">key</span>
+</div>
+<h2 class="font-headline text-2xl font-bold text-on-surface">Connect to Claude</h2>
+<p class="text-on-surface-variant text-sm">Enter your Anthropic API key to power the AI assistant.</p>
+</div>
+<input id="api-key-input" type="password" placeholder="sk-ant-api03-..." class="w-full bg-surface-container-lowest border border-outline-variant/15 rounded-xl px-4 py-3 text-on-surface text-sm placeholder:text-on-surface-variant/40 focus:ring-2 focus:ring-primary focus:border-primary transition-all"/>
+<button onclick="saveApiKey()" class="w-full bg-primary-container text-on-primary-container py-4 rounded-full font-bold text-base active:scale-95 transition-transform shadow-lg shadow-primary-container/20">
+Activate Assistant
+</button>
+<button onclick="skipApiKey()" class="w-full text-on-surface-variant text-sm font-medium hover:text-primary transition-colors">
+Skip — use demo mode
+</button>
+</div>
+</div>
+
+<!-- BottomNavBar -->
+    <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#492f1c]/70 backdrop-blur-xl rounded-t-[1.5rem] shadow-[0_-4px_24px_0_rgba(28,9,0,0.1)]">
+        <!-- Home -->
+        <a class="flex flex-col items-center justify-center text-[#ffdcc5]/60 hover:text-[#ffb77e] transition-colors active:scale-90 duration-200" href="../home_screen/code.html">
+            <span class="material-symbols-outlined mb-1">home</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium uppercase tracking-widest">Home</span>
+        </a>
+        <!-- Menu -->
+        <a class="flex flex-col items-center justify-center text-[#ffdcc5]/60 hover:text-[#ffb77e] transition-colors active:scale-90 duration-200" href="../product_detail/code.html">
+            <span class="material-symbols-outlined mb-1">restaurant_menu</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium uppercase tracking-widest">Menu</span>
+        </a>
+        <!-- Orders -->
+        <a class="flex flex-col items-center justify-center text-[#ffdcc5]/60 hover:text-[#ffb77e] transition-colors active:scale-90 duration-200" href="../order_tracking/code.html">
+            <span class="material-symbols-outlined mb-1">local_shipping</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium uppercase tracking-widest">Orders</span>
+        </a>
+        <!-- AI Chat (Active) -->
+        <a class="flex flex-col items-center justify-center text-[#ffb77e] bg-[#220e02]/50 rounded-xl px-3 py-1 scale-90 duration-200" href="../ai_chat_assistant/code.html">
+            <span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium uppercase tracking-widest">AI Chat</span>
+        </a>
+        <!-- Profile -->
+        <a class="flex flex-col items-center justify-center text-[#ffdcc5]/60 hover:text-[#ffb77e] transition-colors active:scale-90 duration-200" href="../contact_support/code.html">
+            <span class="material-symbols-outlined mb-1">person</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium uppercase tracking-widest">Profile</span>
+        </a>
+    </nav>
+<style>
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    @keyframes typingDot {
+        0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+        30% { opacity: 1; transform: translateY(-4px); }
+    }
+    .typing-dot { animation: typingDot 1.4s ease-in-out infinite; }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+</style>
+<script>
+    let API_KEY = '';
+    let conversationHistory = [];
+    const chatCanvas = document.querySelector('main');
+    const chatInput = document.getElementById('chat-input');
+    const apiModal = document.getElementById('api-modal');
+
+    const SYSTEM_PROMPT = `You are Doughvana's premium AI concierge 🍩. You are sophisticated, warm, and deeply passionate about artisanal treats. 
+
+Your Menu Knowledge:
+- Glazed Heaven Donut (KSh 80): Our signature brioche-style dough, 24-hour fermented, with a delicate vanilla bean glaze.
+- Fruit Gummy Bears (KSh 150): Vibrant, translucent, and bursting with natural fruit flavors.
+- Chocolate Lava Brownie (KSh 120): Fudgy, moist, and features a molten chocolate core.
+- Butter Croissant (KSh 100): Flaky, golden-brown layers made with premium butter.
+- Giant Cookie Box (KSh 400): A luxury craft box filled with oversized chocolate chip cookies.
+- Doughvana Study Pack (KSh 500): The ultimate fuel—a curated collection of donuts and brownies for deep focus.
+- Weed Gummies (KSh 300): Artisanal infused gummies for a balanced, relaxed flow.
+
+Logistics:
+- Delivery Zones: Juja, Kimbo, Witeithie, Thika Road, Ruiru, Kroad, Highpoint, and the JKUAT area.
+- Delivery Fee: A flat rate of KSh 50 per zone.
+- Hours: We delight customers daily from 7:00 AM to 11:00 PM.
+- Special Offer: The Study Pack is currently our star attraction at KSh 500.
+
+Guidelines:
+- Keep responses concise but "delicious."
+- Use food emojis (🍩, 🍪, ✨, ☕).
+- If a user asks for recommendations, suggest the Study Pack for students or Glazed Heaven for a classic treat.
+- You are Claude, the Doughvana digital host.`;
+
+    // Check for saved key
+    const savedKey = localStorage.getItem('doughvana_api_key');
+    if (savedKey) {
+        API_KEY = savedKey;
+        apiModal.style.display = 'none';
+    }
+
+    function saveApiKey() {
+        const key = document.getElementById('api-key-input').value.trim();
+        if (key) {
+            API_KEY = key;
+            localStorage.setItem('doughvana_api_key', key);
+        }
+        apiModal.style.display = 'none';
+    }
+
+    function skipApiKey() {
+        apiModal.style.display = 'none';
+    }
+
+    function getTimeString() {
+        return new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+    }
+
+    function addUserMessage(text) {
+        const quickReplies = document.getElementById('quick-replies');
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'flex flex-col gap-2 max-w-[85%] self-end';
+        msgDiv.innerHTML = `
+            <div class="bg-surface-container-highest text-on-surface p-4 rounded-2xl rounded-tr-none border border-outline-variant/10">
+                <p class="text-sm leading-relaxed">${escapeHtml(text)}</p>
+            </div>
+            <span class="text-[10px] font-label text-on-surface-variant/50 self-end mr-1">${getTimeString()}</span>
+        `;
+        chatCanvas.insertBefore(msgDiv, quickReplies);
+        scrollToBottom();
+    }
+
+    function addBotMessage(text) {
+        const quickReplies = document.getElementById('quick-replies');
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'flex flex-col gap-2 max-w-[85%] self-start';
+        // Convert markdown bold and newlines
+        let html = escapeHtml(text)
+            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\n/g, '<br/>');
+        msgDiv.innerHTML = `
+            <div class="bg-primary-container text-on-primary-container p-4 rounded-2xl rounded-tl-none shadow-lg">
+                <p class="text-sm leading-relaxed">${html}</p>
+            </div>
+            <span class="text-[10px] font-label text-on-surface-variant/50 ml-1">${getTimeString()}</span>
+        `;
+        chatCanvas.insertBefore(msgDiv, quickReplies);
+        scrollToBottom();
+    }
+
+    function showTypingIndicator() {
+        const quickReplies = document.getElementById('quick-replies');
+        const typing = document.createElement('div');
+        typing.id = 'typing-indicator';
+        typing.className = 'flex flex-col gap-2 max-w-[85%] self-start';
+        typing.innerHTML = `
+            <div class="bg-primary-container text-on-primary-container p-4 rounded-2xl rounded-tl-none shadow-lg">
+                <div class="flex gap-1.5 items-center h-5">
+                    <div class="w-2 h-2 bg-on-primary-container/60 rounded-full typing-dot"></div>
+                    <div class="w-2 h-2 bg-on-primary-container/60 rounded-full typing-dot"></div>
+                    <div class="w-2 h-2 bg-on-primary-container/60 rounded-full typing-dot"></div>
+                </div>
+            </div>
+        `;
+        chatCanvas.insertBefore(typing, quickReplies);
+        scrollToBottom();
+    }
+
+    function removeTypingIndicator() {
+        const el = document.getElementById('typing-indicator');
+        if (el) el.remove();
+    }
+
+    function scrollToBottom() {
+        setTimeout(() => chatCanvas.scrollTop = chatCanvas.scrollHeight, 50);
+    }
+
+    function escapeHtml(text) {
+        const d = document.createElement('div');
+        d.textContent = text;
+        return d.innerHTML;
+    }
+
+    async function sendMessage() {
+        const text = chatInput.value.trim();
+        if (!text) return;
+        chatInput.value = '';
+        addUserMessage(text);
+        conversationHistory.push({ role: 'user', content: text });
+
+        if (!API_KEY) {
+            addBotMessage("I'm in demo mode right now! 🍩 To get real AI responses, tap the menu icon and enter your Anthropic API key. In the meantime, feel free to explore our menu — I'd recommend our Glazed Heaven Donut (KSh 80) or the Study Pack (KSh 500) if you need fuel for a long night! 🔥");
+            return;
+        }
+
+        showTypingIndicator();
+        try {
+            const res = await fetch('https://api.anthropic.com/v1/messages', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': API_KEY,
+                    'anthropic-version': '2023-06-01',
+                    'anthropic-dangerous-direct-browser-access': 'true'
+                },
+                body: JSON.stringify({
+                    model: 'claude-sonnet-4-20250514',
+                    max_tokens: 512,
+                    system: SYSTEM_PROMPT,
+                    messages: conversationHistory
+                })
+            });
+
+            removeTypingIndicator();
+
+            if (!res.ok) {
+                const err = await res.json().catch(() => ({}));
+                if (res.status === 401) {
+                    addBotMessage("Hmm, that API key doesn't seem right 🔑 Please check it and try again. You can update it by refreshing the page.");
+                    API_KEY = '';
+                    localStorage.removeItem('doughvana_api_key');
+                } else {
+                    addBotMessage(`Oops! Something went wrong (${res.status}). Let me try again in a moment 🍩`);
+                }
+                return;
+            }
+
+            const data = await res.json();
+            const reply = data.content[0].text;
+            conversationHistory.push({ role: 'assistant', content: reply });
+            addBotMessage(reply);
+        } catch (e) {
+            removeTypingIndicator();
+            addBotMessage("I'm having trouble connecting right now 😔 Please check your internet and try again!");
+        }
+    }
+
+    function sendQuickReply(text) {
+        chatInput.value = text;
+        sendMessage();
+    }
+</script>
+</body></html>

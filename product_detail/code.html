@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-fixed": "#241a00",
+            "tertiary-container": "#cca72f",
+            "secondary-container": "#00761f",
+            "inverse-on-surface": "#442b18",
+            "surface-container-lowest": "#1c0900",
+            "primary-fixed": "#ffdcc3",
+            "on-error": "#690005",
+            "error": "#ffb4ab",
+            "inverse-primary": "#914d00",
+            "on-secondary-fixed": "#002204",
+            "tertiary": "#e9c349",
+            "on-tertiary-container": "#4e3d00",
+            "inverse-surface": "#ffdcc5",
+            "secondary": "#78dc77",
+            "secondary-fixed-dim": "#78dc77",
+            "on-error-container": "#ffdad6",
+            "surface-container-high": "#3c2412",
+            "outline": "#a18d7f",
+            "on-tertiary": "#3c2f00",
+            "surface-container": "#301a09",
+            "on-secondary-container": "#95fb92",
+            "surface": "#220e02",
+            "on-background": "#ffdcc5",
+            "on-secondary": "#00390a",
+            "primary-fixed-dim": "#ffb77e",
+            "on-primary-fixed-variant": "#6e3900",
+            "surface-container-low": "#2c1606",
+            "tertiary-fixed": "#ffe088",
+            "on-surface": "#ffdcc5",
+            "primary": "#ffb77e",
+            "surface-variant": "#492f1c",
+            "secondary-fixed": "#94f990",
+            "on-secondary-fixed-variant": "#005313",
+            "surface-dim": "#220e02",
+            "tertiary-fixed-dim": "#e9c349",
+            "error-container": "#93000a",
+            "on-primary-fixed": "#2f1500",
+            "surface-tint": "#ffb77e",
+            "surface-container-highest": "#492f1c",
+            "on-surface-variant": "#d9c2b3",
+            "surface-bright": "#4d3320",
+            "on-primary-container": "#442100",
+            "primary-container": "#d07c30",
+            "on-primary": "#4d2600",
+            "outline-variant": "#544438",
+            "on-tertiary-fixed-variant": "#574500",
+            "background": "#220e02"
+          },
+          fontFamily: {
+            "headline": ["Noto Serif"],
+            "body": ["Plus Jakarta Sans"],
+            "label": ["Plus Jakarta Sans"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1.5rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      line-height: 1;
+      text-transform: none;
+      letter-spacing: normal;
+      word-wrap: normal;
+      white-space: nowrap;
+      direction: ltr;
+    }
+    body {
+      background-color: #220e02;
+      color: #ffdcc5;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .hero-gradient {
+      background: linear-gradient(to bottom, transparent 60%, #220e02 100%);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+  <script src="../cart.js"></script>
+  </head>
+<body class="min-h-screen pb-32">
+<!-- Top Navigation (Shell Implementation) -->
+<nav class="flex justify-between items-center w-full px-6 py-4 fixed top-0 z-50 bg-[#220e02] dark:bg-[#220e02]">
+<div class="flex items-center gap-4">
+        <a href="../home_screen/code.html" class="text-[#ffb77e] hover:opacity-80 transition-opacity active:scale-95 duration-150">
+            <span class="material-symbols-outlined">arrow_back</span>
+        </a>
+</div>
+<a href="../index.html" class="font-['Noto_Serif'] text-2xl font-black text-[#ffb77e] tracking-tighter hover:opacity-80 transition-opacity">Doughvana</a>
+<div class="flex items-center gap-4">
+<button class="text-[#ffb77e] hover:opacity-80 transition-opacity active:scale-95 duration-150">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+<div class="absolute bottom-[-4px] left-0 right-0 bg-gradient-to-b from-[#2c1606] to-transparent h-1"></div>
+</nav>
+<!-- Hero Section -->
+<section class="relative w-full h-[486px] overflow-hidden">
+<img alt="Glazed Heaven Donut" class="w-full h-full object-cover" data-alt="Close-up of a perfectly glazed artisan donut with golden brown dough and shimmering sugar coating on a dark rustic surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbpl0-esWzPd58NaIpzABLOgaZ4EKc1zdLHHHyyKAgb5Ouc8pMVBNZ-gpNnqCd7dOydotWA-kGHJelzg2R29EdlNKSPUs8RBM_hzrnW9yBZ_gKi4eO6PSrfb-VefnGUYrYU3erMtYjTaYq70s-2r8w_F_R8HPp4GEse-VOwLrAlBzHeZYhZ5LUgn1UONSdEPOyY9xCmYTdQgeinMT6deeccrf1iKB2AaJXfidD1RWRxiya68G1YHiT8_81ILo6CtzuOaKtGBxmBTWb"/>
+<div class="absolute inset-0 hero-gradient"></div>
+</section>
+<!-- Product Details Content -->
+<main class="px-6 -mt-16 relative z-10">
+<div class="flex flex-col gap-2">
+<span class="text-primary font-label text-sm font-bold tracking-[0.2em] uppercase">Signature Selection</span>
+<h1 class="font-headline text-4xl font-bold text-on-surface leading-tight">Glazed Heaven Donut</h1>
+<div class="flex items-center gap-3 mt-1">
+<div class="flex items-center text-tertiary">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="ml-1 font-bold text-on-surface">4.9</span>
+</div>
+<span class="text-on-surface-variant text-sm font-medium">(128 reviews)</span>
+<div class="h-1 w-1 rounded-full bg-outline-variant mx-1"></div>
+<span class="text-secondary font-bold text-sm">Best Seller</span>
+</div>
+<div class="flex items-center justify-between mt-6">
+<span class="text-primary font-headline text-3xl font-black">KSh 80</span>
+<!-- Quantity Selector -->
+          <div class="flex items-center bg-surface-container-highest rounded-full p-1.5 shadow-lg shadow-surface-container-lowest">
+            <button onclick="updatePageQty(-1)" class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors active:scale-90">
+              <span class="material-symbols-outlined">remove</span>
+            </button>
+            <span id="page-qty" class="px-6 font-bold text-lg text-on-surface">1</span>
+            <button onclick="updatePageQty(1)" class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md shadow-primary/20 active:scale-90 transition-transform">
+              <span class="material-symbols-outlined">add</span>
+            </button>
+          </div>
+</div>
+<div class="mt-8">
+<h3 class="font-label text-xs font-bold tracking-widest text-outline uppercase mb-3">Description</h3>
+<p class="text-on-surface-variant font-body leading-relaxed text-base">
+          Our signature light-as-air donut is crafted with a secret brioche-style dough, fermented for 24 hours to achieve the perfect chew. Each ring is dipped in our house-made heavenly vanilla bean glaze, creating a delicate crackle with every bite.
+        </p>
+</div>
+<!-- Detail Chips -->
+<div class="flex flex-wrap gap-2 mt-6">
+<div class="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-low border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-sm">timer</span>
+<span class="text-xs font-semibold text-on-surface">Fresh Hourly</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-low border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-sm">local_fire_department</span>
+<span class="text-xs font-semibold text-on-surface">210 kcal</span>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-low border border-outline-variant/10">
+<span class="material-symbols-outlined text-primary text-sm">eco</span>
+<span class="text-xs font-semibold text-on-surface">Vegan Option</span>
+</div>
+</div>
+</div>
+<!-- Suggested Products -->
+<section class="mt-12 mb-8">
+<div class="flex justify-between items-end mb-6">
+<div>
+<span class="text-tertiary font-label text-[10px] font-bold tracking-[0.2em] uppercase">Perfect Pairings</span>
+<h2 class="font-headline text-2xl font-bold text-on-surface">You might also like</h2>
+</div>
+<button class="text-primary text-sm font-bold flex items-center gap-1">
+          View all <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+<div class="flex overflow-x-auto gap-4 custom-scrollbar -mx-6 px-6 pb-4">
+<!-- Suggestion Card 1 -->
+<div class="min-w-[160px] bg-surface-container-highest rounded-2xl p-3 flex flex-col gap-3 group transition-transform active:scale-95 duration-200">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden">
+<img alt="Dark Chocolate Dip" class="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500" data-alt="Gourmet dark chocolate covered donut topped with gold leaf flecks and sea salt crystals" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBdm3QK1cQBy2yzb0BZrTeqnN0PFRMR649nbTcekwNzLi18ETTA0HtlqwasHhlErwHHKb8CEBwYQi0dneAYBr8MByVtQGX12D3k3vbS2nORP69-DbCLS4hyQwEDiyRYtK42UlN4o8z8iiwRxCfegFlyl-WVGFIeUf7NJ4lfTalmTDfnsaveykD2sIbL99-gujan3dA8e0ERRbCiztObIAXkkpHLO92I68iWDAFwOrdPmPoG7muaqV1zZU7d8Qp3QGk5_AIb6sWzUqr"/>
+</div>
+<div>
+<h4 class="font-headline text-sm font-bold text-on-surface line-clamp-1">Cocoa Velvet</h4>
+<span class="text-primary font-bold text-sm">KSh 120</span>
+</div>
+</div>
+<!-- Suggestion Card 2 -->
+<div class="min-w-[160px] bg-surface-container-highest rounded-2xl p-3 flex flex-col gap-3 group transition-transform active:scale-95 duration-200">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden">
+<img alt="Strawberry Dream" class="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500" data-alt="Artisan strawberry donut with fresh berry glaze and sprinkles on a warm wood background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBi16WEpkc-v5CRYePlGDLzq-Zgymw_iYO-zXgqLSamuhqzpWJmJF01rGD7yVZzguUpmU-ShMIKdqK5UGVAOl-hC9gZ2Wm8CwmPWo5r543tXBly1UuTLpkHX_14-dJo6QsJXF6pEF1Mlsg5spdnBQ3-KroWicIaa3JBgtFWgZKozPTrh4RT7kl0WivLL-Jw1FRuwu52_Mg47IQ3aE4gB1Hreajro_ARJwUyU_9J19wtU6J207bCOqoaodDT_NocSa96slT3JQdlcjC"/>
+</div>
+<div>
+<h4 class="font-headline text-sm font-bold text-on-surface line-clamp-1">Berry Dream</h4>
+<span class="text-primary font-bold text-sm">KSh 95</span>
+</div>
+</div>
+<!-- Suggestion Card 3 -->
+<div class="min-w-[160px] bg-surface-container-highest rounded-2xl p-3 flex flex-col gap-3 group transition-transform active:scale-95 duration-200">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden">
+<img alt="Matcha Bliss" class="w-full h-full object-cover transition-transform group-hover:scale-110 duration-500" data-alt="Vibrant green matcha glazed donut with white chocolate drizzle in a professional studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2pb7ArYROlnKdSC_oYoT59E7jTt3kBPMWu9Zk-ZZFihlBT1yUwV8GEZg616AR1505yl5spQ5aWa7G1OuXA9mJNrlz9M0_sFu9A967q01zoGofhu5lQ0FWwLyp48YjmFsS3trIk683xhK_fb9MmEsEqUaS01Jx5w5lWjhnDIW92veKnwzaZaYMYJbgOpe1xMnTHgfvvvN8UsjrIBAqaZgoQyCyF13jKIaF3Mo5angw3-z_UiwHzUKlBLiP63saqqdSYpdonbe1mal7"/>
+</div>
+<div>
+<h4 class="font-headline text-sm font-bold text-on-surface line-clamp-1">Matcha Zen</h4>
+<span class="text-primary font-bold text-sm">KSh 110</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating Add to Cart Button Shell -->
+    <div class="fixed bottom-24 left-0 right-0 px-6 z-40">
+      <button onclick="addToCartFromPage()" class="w-full bg-primary-container text-on-primary-container py-5 rounded-full font-bold text-lg shadow-2xl shadow-[#1c0900] active:scale-[0.98] transition-all hover:bg-primary duration-300 flex items-center justify-center gap-3">
+        <span class="material-symbols-outlined">shopping_basket</span>
+        Add to Cart
+      </button>
+    </div>
+    
+    <script>
+      let currentQty = 1;
+      const qtyDisplay = document.getElementById('page-qty');
+      
+      function updatePageQty(delta) {
+        currentQty = Math.max(1, currentQty + delta);
+        qtyDisplay.textContent = currentQty;
+      }
+      
+      function addToCartFromPage() {
+        Cart.add({
+          name: 'Glazed Heaven Donut',
+          price: 80,
+          image: '../product_detail/screen.png',
+          quantity: currentQty
+        });
+      }
+    </script>
+<!-- Bottom Navigation (Shell Implementation) -->
+    <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-6 pt-3 bg-[#492f1c]/70 backdrop-blur-xl rounded-t-[1.5rem] shadow-[0_-4px_24px_0_rgba(28,9,0,0.1)]">
+        <!-- Home -->
+        <a class="flex flex-col items-center justify-center text-[#ffdcc5]/60 hover:text-[#ffb77e] transition-colors active:scale-90 duration-200" href="../home_screen/code.html">
+            <span class="material-symbols-outlined">home</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium uppercase tracking-widest mt-1">Home</span>
+        </a>
+        <!-- Menu (Active) -->
+        <a class="flex flex-col items-center justify-center text-[#ffb77e] bg-[#220e02]/50 rounded-xl px-3 py-1 scale-90 duration-200" href="../product_detail/code.html">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant_menu</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium uppercase tracking-widest mt-1">Menu</span>
+        </a>
+        <!-- Orders -->
+        <a class="flex flex-col items-center justify-center text-[#ffdcc5]/60 hover:text-[#ffb77e] transition-colors active:scale-90 duration-200" href="../order_tracking/code.html">
+            <span class="material-symbols-outlined">local_shipping</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium uppercase tracking-widest mt-1">Orders</span>
+        </a>
+        <!-- AI Chat -->
+        <a class="flex flex-col items-center justify-center text-[#ffdcc5]/60 hover:text-[#ffb77e] transition-colors active:scale-90 duration-200" href="../ai_chat_assistant/code.html">
+            <span class="material-symbols-outlined">smart_toy</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium uppercase tracking-widest mt-1">AI Chat</span>
+        </a>
+        <!-- Profile -->
+        <a class="flex flex-col items-center justify-center text-[#ffdcc5]/60 hover:text-[#ffb77e] transition-colors active:scale-90 duration-200" href="../contact_support/code.html">
+            <span class="material-symbols-outlined">person</span>
+            <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium uppercase tracking-widest mt-1">Profile</span>
+        </a>
+    </nav>
+</body></html>
