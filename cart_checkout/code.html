@@ -358,17 +358,17 @@
       const generatedOrderId = "DV-" + Math.floor(Math.random() * 9000 + 1000);
       
       if (selectedMethod === 'mpesa') {
-        // Step 1: Simulated STK Push
+        // Step 1: Simulated STK Push + Manual Instructions
         setTimeout(() => {
           title.textContent = "STK Push Sent";
-          desc.textContent = `Please enter your M-Pesa PIN on ${document.getElementById('phone-input').value} to complete the purchase.`;
+          desc.innerHTML = `Please enter your M-Pesa PIN on <strong>${document.getElementById('phone-input').value}</strong>.<br><br><span class="text-[10px] opacity-60">Wait! If no push arrives, pay manually to:</span><br><strong class="text-primary text-lg">0703 964 621</strong>`;
           
           // Step 2: Simulated Success after PIN entry
           setTimeout(() => {
             spinner.classList.add('hidden');
             successIcon.classList.remove('hidden');
-            title.textContent = "Payment Successful!";
-            desc.textContent = `Order ${generatedOrderId} has been confirmed.`;
+            title.textContent = "Payment Confirmed!";
+            desc.textContent = `Order ${generatedOrderId} has been received. Delivering to ${selectedZone}!`;
             
             // Step 3: Clear cart and redirect
             setTimeout(() => {
@@ -433,7 +433,7 @@
           `💰 *Total: KSh ${subtotal + 50}*\n💳 *Payment:* ${selectedMethod === 'mpesa' ? 'M-Pesa Express' : 'Cash on Delivery'}\n\n` +
           `Please confirm my order! 🙏`;
 
-      const businessPhone = '254700000000'; // Business WhatsApp
+      const businessPhone = '254703964621'; // Real Owner WhatsApp
       const url = `https://wa.me/${businessPhone}?text=${encodeURIComponent(msg)}`;
       window.open(url, '_blank');
     }
