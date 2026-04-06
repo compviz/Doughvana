@@ -126,20 +126,29 @@
 <label class="block text-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 ml-4">Exact Address</label>
 <div class="flex items-center gap-3 bg-surface-container-lowest px-5 py-4 rounded-2xl border border-outline-variant/15 focus-within:border-primary/50 transition-colors">
 <span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
-<input class="bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-on-surface-variant/40 w-full p-0" placeholder="House/Apt Number, Street Name" type="text"/>
+<input id="address-input" class="bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-on-surface-variant/40 w-full p-0" placeholder="House/Apt Number, Street Name" type="text"/>
+</div>
+</div>
+<!-- Phone Input -->
+<div class="relative">
+<label class="block text-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 ml-4">Phone Number</label>
+<div class="flex items-center gap-3 bg-surface-container-lowest px-5 py-4 rounded-2xl border border-outline-variant/15 focus-within:border-primary/50 transition-colors">
+<span class="text-xl">🇰🇪</span>
+<span class="font-bold text-on-surface-variant mr-1">+254</span>
+<input id="phone-input" class="bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-on-surface-variant/40 w-full p-0 font-medium tracking-wide" placeholder="7XX XXX XXX" type="tel" oninput="formatPhone(this)"/>
 </div>
 </div>
 <!-- Zone Selector -->
 <div>
 <label class="block text-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-3 ml-4">Select Zone</label>
-<div class="flex gap-2 overflow-x-auto no-scrollbar pb-2">
-<button class="flex-shrink-0 px-5 py-2 rounded-full bg-primary text-on-primary font-bold text-sm">Juja</button>
-<button class="flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm hover:bg-surface-container-high transition-colors">Kimbo</button>
-<button class="flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm hover:bg-surface-container-high transition-colors">Witeithie</button>
-<button class="flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm hover:bg-surface-container-high transition-colors">Thika Road</button>
-<button class="flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm hover:bg-surface-container-high transition-colors">Ruiru</button>
-<button class="flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm hover:bg-surface-container-high transition-colors">Kroad</button>
-<button class="flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm hover:bg-surface-container-high transition-colors">Highpoint</button>
+<div id="zone-selector" class="flex gap-2 overflow-x-auto no-scrollbar pb-2">
+<button onclick="selectZone('Juja', this)" class="zone-btn flex-shrink-0 px-5 py-2 rounded-full bg-primary text-on-primary font-bold text-sm">Juja</button>
+<button onclick="selectZone('Kimbo', this)" class="zone-btn flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm hover:bg-surface-container-high transition-colors">Kimbo</button>
+<button onclick="selectZone('Witeithie', this)" class="zone-btn flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm hover:bg-surface-container-high transition-colors">Witeithie</button>
+<button onclick="selectZone('Thika Road', this)" class="zone-btn flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm hover:bg-surface-container-high transition-colors">Thika Road</button>
+<button onclick="selectZone('Ruiru', this)" class="zone-btn flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm hover:bg-surface-container-high transition-colors">Ruiru</button>
+<button onclick="selectZone('Kroad', this)" class="zone-btn flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm hover:bg-surface-container-high transition-colors">Kroad</button>
+<button onclick="selectZone('Highpoint', this)" class="zone-btn flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm hover:bg-surface-container-high transition-colors">Highpoint</button>
 </div>
 </div>
 </section>
@@ -220,6 +229,31 @@
     </section>
 <script>
     let selectedMethod = 'mpesa';
+    let selectedZone = 'Juja';
+
+    function formatPhone(input) {
+      // Auto-format for Kenyan numbers, keep only digits
+      let val = input.value.replace(/\D/g, '');
+      if (val.startsWith('254')) val = val.substring(3);
+      if (val.startsWith('0')) val = val.substring(1);
+      // Format as 7XX XXX XXX loosely
+      if (val.length > 9) val = val.substring(0, 9);
+      if (val.length > 6) {
+        val = val.substring(0,3) + ' ' + val.substring(3,6) + ' ' + val.substring(6);
+      } else if (val.length > 3) {
+        val = val.substring(0,3) + ' ' + val.substring(3);
+      }
+      input.value = val;
+    }
+
+    function selectZone(zone, btnElement) {
+      selectedZone = zone;
+      document.querySelectorAll('.zone-btn').forEach(btn => {
+        btn.className = "zone-btn flex-shrink-0 px-5 py-2 rounded-full bg-surface-container-highest text-on-surface font-medium text-sm hover:bg-surface-container-high transition-colors";
+      });
+      btnElement.className = "zone-btn flex-shrink-0 px-5 py-2 rounded-full bg-primary text-on-primary font-bold text-sm";
+      // Delivery fee could be dependent on zone here, but kept uniform at 50 for now
+    }
 
     function selectPayment(method) {
       selectedMethod = method;
@@ -292,6 +326,21 @@
         Cart.showToast("Your cart is empty! 🍩");
         return;
       }
+      
+      const address = document.getElementById('address-input').value.trim();
+      const phoneRaw = document.getElementById('phone-input').value.replace(/\D/g, '');
+
+      if (!address) {
+        Cart.showToast("Please enter your delivery address! 🏠");
+        document.getElementById('address-input').focus();
+        return;
+      }
+      
+      if (selectedMethod === 'mpesa' && phoneRaw.length < 9) {
+        Cart.showToast("Please enter a valid M-Pesa phone number! 📱");
+        document.getElementById('phone-input').focus();
+        return;
+      }
 
       const overlay = document.getElementById('payment-overlay');
       const spinner = document.getElementById('payment-spinner');
@@ -299,44 +348,61 @@
       const title = document.getElementById('payment-title');
       const desc = document.getElementById('payment-desc');
 
+      // Reset overlay state
+      spinner.classList.remove('hidden');
+      successIcon.classList.add('hidden');
+      title.textContent = selectedMethod === 'mpesa' ? "Confirming Payment" : "Placing Order";
+      desc.textContent = selectedMethod === 'mpesa' ? "Please check your phone for the M-Pesa STK push..." : "Processing your cash order...";
       overlay.classList.remove('opacity-0', 'pointer-events-none');
+      
+      const generatedOrderId = "DV-" + Math.floor(Math.random() * 9000 + 1000);
       
       if (selectedMethod === 'mpesa') {
         // Step 1: Simulated STK Push
         setTimeout(() => {
           title.textContent = "STK Push Sent";
-          desc.textContent = "Please enter your M-Pesa PIN on your phone to complete the purchase.";
+          desc.textContent = `Please enter your M-Pesa PIN on ${document.getElementById('phone-input').value} to complete the purchase.`;
           
           // Step 2: Simulated Success after PIN entry
           setTimeout(() => {
             spinner.classList.add('hidden');
             successIcon.classList.remove('hidden');
             title.textContent = "Payment Successful!";
-            desc.textContent = "Order DV-" + Math.floor(Math.random() * 9000 + 1000) + " has been confirmed.";
+            desc.textContent = `Order ${generatedOrderId} has been confirmed.`;
             
             // Step 3: Clear cart and redirect
             setTimeout(() => {
               const orderData = {
-                id: title.textContent.split(' ')[1] || "DV-8821",
+                id: generatedOrderId,
                 total: Cart.getTotal() + 50,
+                method: "M-Pesa",
                 timestamp: new Date().getTime()
               };
               localStorage.setItem('doughvana_last_order', JSON.stringify(orderData));
               Cart.clear();
-              window.location.href = '../order_tracking/code.html';
-            }, 2000);
+              window.location.replace('../order_tracking/code.html');
+            }, 1800);
           }, 3000);
-        }, 1500);
+        }, 1200);
       } else {
         // Cash on delivery - immediate confirm
-        title.textContent = "Order Placed!";
-        desc.textContent = "Your order will be prepared immediately.";
-        spinner.classList.add('hidden');
-        successIcon.classList.remove('hidden');
         setTimeout(() => {
-            Cart.clear();
-            window.location.href = '../order_tracking/code.html';
-        }, 2000);
+            title.textContent = "Order Placed!";
+            desc.textContent = `Order ${generatedOrderId} confirmed. Have your cash ready!`;
+            spinner.classList.add('hidden');
+            successIcon.classList.remove('hidden');
+            setTimeout(() => {
+                const orderData = {
+                  id: generatedOrderId,
+                  total: Cart.getTotal() + 50,
+                  method: "Cash",
+                  timestamp: new Date().getTime()
+                };
+                localStorage.setItem('doughvana_last_order', JSON.stringify(orderData));
+                Cart.clear();
+                window.location.replace('../order_tracking/code.html');
+            }, 1800);
+        }, 1000);
       }
     }
 
@@ -346,27 +412,29 @@
         Cart.showToast("Your cart is empty! 🍩");
         return;
       }
+      
+      const address = document.getElementById('address-input').value.trim();
+      if (!address) {
+        Cart.showToast("Please enter your delivery address! 🏠");
+        document.getElementById('address-input').focus();
+        return;
+      }
 
       const orderLines = cart.map(i => `${i.quantity}x ${i.name} — KSh ${i.price * i.quantity}`).join('\n');
       const subtotal = Cart.getTotal();
       
-      // Get address
-      const addressInput = document.querySelector('input[placeholder*="House"]');
-      const address = addressInput ? addressInput.value.trim() : '';
-
-      // Get selected zone
-      const activeZone = document.querySelector('.bg-primary.text-on-primary.rounded-full');
-      const zone = activeZone ? activeZone.textContent.trim() : 'Juja';
+      const phoneInput = document.getElementById('phone-input').value.replace(/\D/g, '');
+      const customerPhoneLabel = phoneInput ? `\n📞 *Customer Phone:* +254 ${document.getElementById('phone-input').value}` : '';
 
       const msg = `🍩 *DOUGHVANA ORDER* 🍩\n\n` +
           `📦 *Items:*\n${orderLines}\n\n` +
-          `📍 *Delivery Zone:* ${zone}\n` +
-          `🏠 *Address:* ${address || 'To be confirmed'}\n\n` +
+          `📍 *Delivery Zone:* ${selectedZone}\n` +
+          `🏠 *Address:* ${address}${customerPhoneLabel}\n\n` +
           `💰 *Total: KSh ${subtotal + 50}*\n💳 *Payment:* ${selectedMethod === 'mpesa' ? 'M-Pesa Express' : 'Cash on Delivery'}\n\n` +
           `Please confirm my order! 🙏`;
 
-      const phone = '254700000000'; // Updated to a more neutral placeholder or specific if provided
-      const url = `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+      const businessPhone = '254700000000'; // Business WhatsApp
+      const url = `https://wa.me/${businessPhone}?text=${encodeURIComponent(msg)}`;
       window.open(url, '_blank');
     }
 
@@ -383,7 +451,7 @@
             <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium uppercase tracking-widest">Home</span>
         </a>
         <!-- Menu -->
-        <a class="flex flex-col items-center justify-center text-[#ffdcc5]/60 hover:text-[#ffb77e] transition-colors active:scale-90 duration-200" href="../product_detail/code.html">
+        <a class="flex flex-col items-center justify-center text-[#ffdcc5]/60 hover:text-[#ffb77e] transition-colors active:scale-90 duration-200" href="../home_screen/code.html">
             <span class="material-symbols-outlined mb-1">restaurant_menu</span>
             <span class="font-['Plus_Jakarta_Sans'] text-[10px] font-medium uppercase tracking-widest">Menu</span>
         </a>

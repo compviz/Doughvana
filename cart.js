@@ -64,7 +64,7 @@ const Cart = {
     if (!toast) {
       toast = document.createElement('div');
       toast.id = 'cart-toast';
-      toast.className = 'fixed bottom-24 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-6 py-3 rounded-full font-bold shadow-2xl z-[100] transition-all opacity-0 pointer-events-none transform translate-y-4';
+            toast.className = 'fixed bottom-28 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-6 py-3 rounded-full font-bold shadow-2xl z-[100] transition-all opacity-0 pointer-events-none transform translate-y-4';
       document.body.appendChild(toast);
     }
     

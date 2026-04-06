@@ -203,7 +203,10 @@
 <!-- Order Details Preview -->
         <div class="bg-surface-container-low border border-outline-variant/10 rounded-3xl p-6 flex flex-col justify-center">
           <div class="flex justify-between items-center mb-2">
-            <span id="order-id-display" class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Order #DV-8821</span>
+            <div class="flex items-center gap-2">
+              <span id="order-id-display" class="text-[10px] font-bold uppercase tracking-widest text-on-surface-variant">Order #DV-8821</span>
+              <span id="order-method-badge" class="hidden px-2 py-0.5 rounded text-[8px] font-bold uppercase tracking-widest bg-secondary/20 text-secondary">M-PESA</span>
+            </div>
             <span id="order-total-display" class="text-sm font-bold text-primary">KSh 1,250</span>
           </div>
           <p id="order-items-display" class="text-on-surface text-sm line-clamp-1">Items being prepared...</p>
@@ -242,9 +245,25 @@
       document.addEventListener('DOMContentLoaded', () => {
         const lastOrder = JSON.parse(localStorage.getItem('doughvana_last_order'));
         if (lastOrder) {
-          document.getElementById('order-id-display').textContent = `Order #${lastOrder.id}`;
+          if (lastOrder.id.startsWith('Order #')) {
+              document.getElementById('order-id-display').textContent = lastOrder.id;
+          } else {
+              document.getElementById('order-id-display').textContent = `Order #${lastOrder.id}`;
+          }
+          
           document.getElementById('order-total-display').textContent = `KSh ${lastOrder.total}`;
           document.getElementById('order-items-display').textContent = "Your delicious treats are on the way!";
+          
+          if (lastOrder.method) {
+              const badge = document.getElementById('order-method-badge');
+              badge.textContent = lastOrder.method;
+              if (lastOrder.method === 'Cash') {
+                  badge.className = 'px-2 py-0.5 rounded text-[8px] font-bold uppercase tracking-widest bg-tertiary-container/20 text-tertiary';
+              } else {
+                  badge.className = 'px-2 py-0.5 rounded text-[8px] font-bold uppercase tracking-widest bg-secondary/20 text-secondary';
+              }
+              badge.classList.remove('hidden');
+          }
           
           // Randomize ETA slightly for realism
           const mins = Math.floor(Math.random() * 15 + 10);
